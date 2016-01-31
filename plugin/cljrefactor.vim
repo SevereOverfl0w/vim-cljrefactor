@@ -1,5 +1,5 @@
 " cljrefactor.vim - Clojure Refactoring Support
-" Maintainer:  Frazer Irving () 
+" Maintainer:  Frazer Irving ()
 " Version:      0.1
 " GetLatestVimScripts: 9999 1 :AutoInstall: cljrefactor.vim
 
