@@ -110,9 +110,16 @@ function! cljrefactor#cleanns() abort
     normal! gvp
     normal! gv=
     " I have no idea why I need to delete a line. Empty one is created though
-    normal! kdd 
+    normal! kdd
   endif
   call winrestview(l:winview)
 endfunction
+
+function! cljrefactor#rename_file(src, dest) abort
+  return fireplace#message({"op": "rename-file-or-dir", "old-path": a:src, "new-path": a:dest})
+endfunction
+
+command! -bar -nargs=1 -bang -complete=file Rename :
+      \ echo cljrefactor#rename_file(expand('%:p'), fnamemodify(expand(<q-args>), ":p"))
 
 nmap <silent> cns :call cljrefactor#cleanns()<CR>
